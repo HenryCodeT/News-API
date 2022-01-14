@@ -20,6 +20,7 @@ let optenerNoticias = (event)=>{
             }
         })
         .then((respuestaJson)=>{
+            console.log(respuestaJson);
             let resultados =document.querySelector(".resultados")
             for (let i = 0; i < respuestaJson.articles.length; i++) {
 
@@ -27,10 +28,10 @@ let optenerNoticias = (event)=>{
                 <div>
                     <h2>${respuestaJson.articles[i].title}</h2>
                     <div>
-                        <img src="${respuestaJson.articles[i].urlToImage}" alt="">
+                        <img src="${respuestaJson.articles[i].urlToImage}" alt="${respuestaJson.articles[i].source.name}">
                     </div>
                     <h5>${respuestaJson.articles[i].author}</h5>
-                    <p>${respuestaJson.articles[i].content}</p>
+                    <p>${respuestaJson.articles[i].description}</p>
                 </div>
                 `
             }
